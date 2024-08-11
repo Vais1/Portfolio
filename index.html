@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>port-folio</title>
+
+    <link
+      rel="shortcut icon"
+      href="./assets/images/logo.ico"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Body content goes here -->
+  </body>
+</html>
+
+    <style>
+     /* Button Styling */
+.view-resume-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #f8c966;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.view-resume-btn:hover {
+  background-color: #b28e4e;
+  transform: scale(1.05);
+}
+
+/* Modal Styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.85);
+  animation: fadeIn 0.5s;
+}
+
+.modal-content {
+  position: relative;
+  margin: 5% auto;
+  padding: 0;
+  width: 90%;
+  max-width: 900px;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.4s;
+}
+
+.resume-iframe {
+  width: 100%;
+  height: 600px;
+  border: none;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #f8c966;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { background-color: rgba(0, 0, 0, 0); }
+  to { background-color: rgba(0, 0, 0, 0.85); }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-100px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Scoped styling for the technical skills section */
+/* Scoped styling for the technical skills section */
+.technical-skills-section .technical-skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 10px 0;
+  list-style: none;
+}
+
+.technical-skills-section .technical-skills-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+}
+
+/* Default icon color */
+.technical-skills-section .technical-skills-item ion-icon,
+.technical-skills-section .technical-skills-item i {
+  font-size: 1.5rem;
+  color: #f8c966; /* Default icon color */
+}
+
+/* Default text color */
+.technical-skills-section .technical-skills-item {
+  color: #333; /* Default text color */
+}
+
+/* Java */
+.technical-skills-section .technical-skills-item i.fab.fa-java {
+  color: #F7DF1E; /* Java icon color */
+}
+.technical-skills-section .technical-skills-item {
+  color: #F7DF1E; /* Java text color */
+}
+
+/* PHP */
+.technical-skills-section .technical-skills-item i.fab.fa-php {
+  color: #4F5D95; /* PHP icon color */
+}
+.technical-skills-section .technical-skills-item {
+  color: #4F5D95; /* PHP text color */
+}
+
+/* Python */
+.technical-skills-section .technical-skills-item i.fab.fa-python {
+  color: #306998; /* Python icon color */
+}
+.technical-skills-section .technical-skills-item {
+  color: #306998; /* Python text color */
+}
+
+/* XML */
+.technical-skills-section .technical-skills-item i.ri-code-s-slash-line {
+  color: #E34F26; /* XML icon color */
+}
+.technical-skills-section .technical-skills-item {
+  color: #E34F26; /* XML text color */
+}
+
+/* Node.js */
+.technical-skills-section .technical-skills-item ion-icon[name="logo-nodejs"] {
+  color: #8CC84B; /* Node.js icon color */
+}
+.technical-skills-section .technical-skills-item {
+  color: #8CC84B; /* Node.js text color */
+}
+
+/* HTML */
+.technical-skills-section .technical-skills-item ion-icon[name="logo-html5"] {
+  color: #E34F26; /* HTML icon color */
+}
+.technical-skills-section .technical-skills-item {
+  color: #E34F26; /* HTML text color */
+}
+
+/* CSS */
+.technical-skills-section .technical-skills-item ion-icon[name="logo-css3"] {
+  color: #1572B6; /* CSS icon color */
+}
+.technical-skills-section .technical-skills-item {
+  color: #1572B6; /* CSS text color */
+}
+
+/* JavaScript */
+.technical-skills-section .technical-skills-item ion-icon[name="logo-javascript"] {
+  color: #F7DF1E; /* JavaScript icon color */
+}
+.technical-skills-section .technical-skills-item {
+  color: #F7DF1E; /* JavaScript text color */
+}
+
+/* jQuery */
+.technical-skills-section .technical-skills-item i.ri-jquery-fill {
+  color: #0769AD; /* jQuery icon color */
+}
+.technical-skills-section .technical-skills-item {
+  color: #0769AD; /* jQuery text color */
+}
+
+/* React */
+.technical-skills-section .technical-skills-item ion-icon[name="logo-react"] {
+  color: #61DAFB; /* React icon color */
+}
+.technical-skills-section .technical-skills-item {
+  color: #61DAFB; /* React text color */
+}
+
+/* MySQL */
+.technical-skills-section .technical-skills-item i.ri-database-2-line {
+  color: #00758F; /* MySQL icon color */
+}
+.technical-skills-section .technical-skills-item {
+  color: #00758F; /* MySQL text color */
+}
+
+/* MongoDB */
+.technical-skills-section .technical-skills-item i.ri-server-line {
+  color: #4DB33D; /* MongoDB icon color */
+}
+.technical-skills-section .technical-skills-item {
+  color: #4DB33D; /* MongoDB text color */
+}
+
+/* VsCode */
+.technical-skills-section .technical-skills-item i.ri-code-s-slash-fill {
+  color: #007ACC; /* VsCode icon color */
+}
+.technical-skills-section .technical-skills-item {
+  color: #007ACC; /* VsCode text color */
+}
+
+/* NetBeans */
+.technical-skills-section .technical-skills-item i.ri-terminal-box-line {
+  color: #f8c966; /* NetBeans icon color */
+}
+.technical-skills-section .technical-skills-item {
+  color: #1E1E1E; /* NetBeans text color */
+}
+
+/* phpMyAdmin */
+.technical-skills-section .technical-skills-item i.fab.fa-php {
+  color: #4F5D95; /* phpMyAdmin icon color */
+}
+.technical-skills-section .technical-skills-item {
+  color: #4F5D95; /* phpMyAdmin text color */
+}
+
+/* Android Studio */
+.technical-skills-section .technical-skills-item i.ri-android-fill {
+  color: #A4C639; /* Android Studio icon color */
+}
+.technical-skills-section .technical-skills-item {
+  color: #A4C639; /* Android Studio text color */
+}
+
+/* Figma */
+.technical-skills-section .technical-skills-item i.ri-pencil-ruler-2-line {
+  color: #F24C3D; /* Figma icon color */
+}
+.technical-skills-section .technical-skills-item {
+  color: #F24C3D; /* Figma text color */
+}
+
+/* Eclipse */
+.technical-skills-section .technical-skills-item i.ri-code-s-slash-line {
+  color: #E34F26; /* Eclipse icon color */
+}
+.technical-skills-section .technical-skills-item {
+  color: #E34F26; /* Eclipse text color */
+}
+
+/* IntelliJ IDEA */
+.technical-skills-section .technical-skills-item i.ri-terminal-box-fill {
+  color: #f8c966; /* IntelliJ IDEA icon color */
+}
+.technical-skills-section .technical-skills-item {
+  color: #000; /* IntelliJ IDEA text color */
+}
+
+/* Font Awesome-specific icon styles */
+
+
+
+.title-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.icon-box {
+  margin-right: 10px; /* Adjust space between icon and text */
+}
+
+.icon-box ion-icon {
+  font-size: 24px; /* Adjust icon size */
+}
+
+.h3 {
+  margin: 0; /* Remove default margin from h3 */
+  font-size: 18px; /* Adjust text size */
+}
+
+    </style>
+  </head>
+
+  <body>
+    <!--
+    - #MAIN
+  -->
+
+    <main>
+      <!--
+      - #SIDEBAR
+    -->
+
+      <aside class="sidebar" data-sidebar>
+        <div class="sidebar-info">
+          <figure class="avatar-box">
+            <img
+              src="./assets/images/my-avatar.png"
+              alt="Awais Ghaffar"
+              width="80"
+              style="border-radius: 10%;"
+            />
+          </figure>
+          
+
+          <div class="info-content">
+            <h1 class="name" title="Richard hanrick">Muhammad Awais <br> Ghaffar</h1>
+            <br>
+            <p class="title">Web developer</p>
+            <br>
+          </div>
+
+          <button class="info_more-btn" data-sidebar-btn>
+            <span>Show Contacts</span>
+
+            <ion-icon name="chevron-down"></ion-icon>
+          </button>
+        </div>
+
+        <div class="sidebar-info_more">
+          <div class="separator"></div>
+
+          <ul class="contacts-list">
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="mail-outline"></ion-icon>
+              </div>
+
+              <div class="contact-info">
+                <p class="contact-title">Email</p>
+
+                <a href="mailto:awasmaan@gmail.com" class="contact-link"
+                  >awasmaan@gmail.com</a
+                >
+              </div>
+            </li>
+
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="phone-portrait-outline"></ion-icon>
+              </div>
+
+              <div class="contact-info">
+                <p class="contact-title">Phone</p>
+
+                <a class="contact-link">(+60) 1116855669</a>
+              </div>
+            </li>
+
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="calendar-outline"></ion-icon>
+              </div>
+
+              <div class="contact-info">
+                <p class="contact-title">Birthday</p>
+
+                <time>Aug 20, 2005</time>
+              </div>
+            </li>
+
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="location-outline"></ion-icon>
+              </div>
+
+              <div class="contact-info">
+                <p class="contact-title">Location</p>
+
+                <address>Subang Jaya, Selangor, Malaysia</address>
+              </div>
+            </li>
+          </ul>
+
+          <div class="separator"></div>
+
+          <ul class="social-list">
+            <li class="social-item">
+              <a href="https://www.linkedin.com/in/awais-ghaffar-16755429a" class="social-link" target="_blank" rel="noopener noreferrer">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+          
+            <li class="social-item">
+              <a href="https://www.instagram.com/avvaaiis/?hl=en" class="social-link" target="_blank" rel="noopener noreferrer">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+          
+            <li class="social-item">
+              <a href="https://github.com/Vais1" class="social-link" target="_blank" rel="noopener noreferrer">
+                <ion-icon name="logo-github"></ion-icon>
+              </a>
+            </li>
+          </ul>
+          
+        </div>
+      </aside>
+
+      <!--
+      - #main-content
+    -->
+
+      <div class="main-content">
+        <!--
+        - #NAVBAR
+      -->
+
+        <nav class="navbar">
+          <ul class="navbar-list">
+            <li class="navbar-item">
+              <button class="navbar-link active" data-nav-link>About</button>
+            </li>
+
+            <li class="navbar-item">
+              <button class="navbar-link" data-nav-link>Resume</button>
+            </li>
+
+            
+            <li class="navbar-item" style="display: none;">
+              <button class="navbar-link" data-nav-link>Portfolio</button>
+            </li>
+            
+
+            <li class="navbar-item">
+              <button class="navbar-link" data-nav-link>Contact</button>
+            </li>
+          </ul>
+        </nav>
+
+        <!--
+        - #ABOUT
+      -->
+
+        <article class="about active" data-page="about">
+          <header>
+            <h2 class="h2 article-title">About me</h2>
+          </header>
+
+          <section class="about-text">
+            <p>
+              I am Muhammad Awais Ghaffar, a passionate Computer Science student with a strong foundation in both front-end and back-end technologies. Currently pursuing a Diploma in Information Technology at Sunway College, I have a proven track record in programming, web development, and app design. My portfolio includes projects like a full-stack ecommerce platform and an airline check-in system, showcasing my ability to create user-friendly and secure digital solutions.            </p>
+            <p>
+              Beyond academics, I have demonstrated leadership as a football team captain and excelled in athletics. My technical expertise spans multiple programming languages, web development frameworks, and design tools, allowing me to craft intuitive and innovative tech solutions.
+            </p>
+            <p>
+              I am always eager to learn and contribute to team objectives, whether in coding challenges, tech workshops, or collaborative projects. With a commitment to excellence and a passion for technology, I aim to make a meaningful impact in the tech industry.
+            </p>
+          </section>
+
+          <!--
+          - service
+        -->
+
+          <section class="service">
+            <h3 class="h3 service-title">expertise</h3> <br>
+
+            <ul class="service-list">
+              <li class="service-item">
+                <div class="service-icon-box">
+                  <img
+                    src="./assets/images/icon-design.svg
+                "
+                    alt="design icon"
+                    width="40"
+                  />
+                </div>
+
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title">Web design</h4>
+
+                  <p class="service-item-text">
+                    Creating attractive and user-friendly website layouts.
+                  </p>
+                </div>
+              </li>
+
+              <li class="service-item">
+                <div class="service-icon-box">
+                  <img
+                    src="./assets/images/icon-dev.svg"
+                    alt="Web development icon"
+                    width="40"
+                  />
+                </div>
+
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title">Web development</h4>            
+                  <p class="service-item-text">
+                    Building responsive and efficient websites.
+                  </p>
+                </div>
+              </li>
+
+              <li class="service-item">
+                <div class="service-icon-box">
+                  <img
+                    src="./assets/images/icon-app.svg"
+                    alt="mobile app icon"
+                    width="40"
+                  />
+                </div>
+
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title">UI/UX</h4>
+                  <p class="service-item-text">
+                    Designing easy and enjoyable user experiences.
+                  </p>
+                </div>
+              </li>
+
+              <li class="service-item">
+                <div class="service-icon-box">
+                  <img
+                    src="./assets/images/icon-photo.svg"
+                    alt="camera icon"
+                    width="40"
+                  />
+                </div>
+
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title">Database Management</h4>
+                  <p class="service-item-text">
+                    Organizing and maintaining data for reliable and secure access.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </section>
+
+          <div class="modal-container" data-modal-container>
+            <div class="overlay" data-overlay></div>
+
+            <section class="testimonials-modal">
+              <button class="modal-close-btn" data-modal-close-btn>
+                <ion-icon name="close-outline"></ion-icon>
+              </button>
+
+              <div class="modal-img-wrapper">
+                <figure class="modal-avatar-box">
+                  <img
+                    src="./assets/images/avatar-1.png"
+                    alt="Daniel lewis"
+                    width="80"
+                    data-modal-img
+                  />
+                </figure>
+
+
+
+        </article>
+
+        <!--
+        - #RESUME
+      -->
+
+      <article class="resume" data-page="resume">
+        <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header>
+      
+        <!-- Education Section -->
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Education</h3>
+          </div>
+      
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Sunway College Subang Jaya, Selangor</h4>
+              <span>2023 - 2025</span>
+              <p class="timeline-text">Diploma in Information Technology (DIIT), CGPA: 3.5. Recipient of Jeffrey Cheah Entrance Scholarship.</p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">IGCSE</h4>
+              <span>Completed in 2021</span>
+              <p class="timeline-text">Completed IGCSE with a focus on Science and Technology subjects.</p>
+            </li>
+          </ol>
+        </section>
+      
+        <!-- Experience Section -->
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Personal Projects</h3>
+          </div>
+      
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">ShopHaven (Ecommerce Website)</h4>
+              <span>Fullstack Development</span>
+              <p class="timeline-text">
+                Designed and built a comprehensive ecommerce platform with user-friendly interfaces, secure payment processing, and responsive design to enhance user experience across devices.
+              </p>
+            </li>
+      
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Aeroline (Airline Check-In System)</h4>
+              <span>System Design</span>
+              <p class="timeline-text">
+                Created an intuitive check-in system with features for seat selection and real-time flight updates, improving user experience and ensuring secure passenger data management.
+              </p>
+            </li>
+          </ol>
+        </section>
+      
+        <!-- Skills Section -->
+        <section class="skill">
+          <h3 class="h3 skills-title">My Skills</h3> <br>
+          <ul class="skills-list content-card">
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Programming Languages</h5>
+                <data value="90">90%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 90%"></div>
+              </div>
+            </li>
+      
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Front-End Development</h5>
+                <data value="85">85%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 85%"></div>
+              </div>
+            </li>
+      
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Database Management</h5>
+                <data value="80">80%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 80%"></div>
+              </div>
+            </li>
+      
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">UI/UX Design</h5>
+                <data value="75">75%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 75%"></div>
+              </div>
+            </li>
+      
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">App Development</h5>
+                <data value="80">80%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 80%"></div>
+              </div>
+            </li>
+          </ul>
+        </section>
+      
+        <br>
+        <section class="skills technical-skills-section">
+          <div class="title-wrapper">
+              <div class="icon-box">
+                  <ion-icon name="code-slash-outline"></ion-icon>
+              </div>
+              <h3 class="h3"> &nbsp &nbsp  Technical Skills</h3>
+          </div>
+          <br>
+  
+          <!-- Programming Languages -->
+          <div class="technical-skill-category">
+              <h4 class="h5">Programming Languages</h5>
+              <ul class="technical-skills-list">
+                  <li class="technical-skills-item">
+                      <i class="fab fa-java"></i> Java
+                  </li>
+                  <li class="technical-skills-item">
+                      <i class="fab fa-php"></i> PHP
+                  </li>
+                  <li class="technical-skills-item">
+                      <i class="fab fa-python"></i> Python
+                  </li>
+                  <li class="technical-skills-item">
+                      <i class="ri-code-s-slash-line"></i> XML
+                  </li>
+                  <li class="technical-skills-item">
+                      <ion-icon name="logo-nodejs"></ion-icon> Node.js
+                  </li>
+                  <li class="technical-skills-item">
+                      <i class="ri-braces-line"></i> JSON
+                  </li>
+              </ul>
+          </div>
+  
+          <!-- Front-End Development -->
+          <div class="technical-skill-category">
+              <h4 class="h5">Front-End Development</h5>
+              <ul class="technical-skills-list">
+                  <li class="technical-skills-item">
+                      <ion-icon name="logo-html5"></ion-icon> HTML
+                  </li>
+                  <li class="technical-skills-item">
+                      <ion-icon name="logo-css3"></ion-icon> CSS
+                  </li>
+                  <li class="technical-skills-item">
+                      <ion-icon name="logo-javascript"></ion-icon> JavaScript
+                  </li>
+                  <li class="technical-skills-item">
+                      <i class="fab fa-java"></i> jQuery
+                  </li>
+                  <li class="technical-skills-item">
+                      <ion-icon name="logo-react"></ion-icon> React
+                  </li>
+              </ul>
+          </div>
+  
+          <!-- Database Management -->
+          <div class="technical-skill-category">
+              <h4 class="h5">Database Management</h5>
+              <ul class="technical-skills-list">
+                  <li class="technical-skills-item">
+                      <i class="ri-database-2-line"></i> MySQL
+                  </li>
+                  <li class="technical-skills-item">
+                      <i class="ri-server-line"></i> MongoDB
+                  </li>
+              </ul>
+          </div>
+  
+          <!-- Tools -->
+          <div class="technical-skill-category">
+              <h4 class="h5">Tools</h5>
+              <ul class="technical-skills-list">
+                  <li class="technical-skills-item">
+                      <i class="ri-code-s-slash-fill"></i> VsCode
+                  </li>
+                  <li class="technical-skills-item">
+                      <i class="ri-terminal-box-line"></i> NetBeans
+                  </li>
+                  <li class="technical-skills-item">
+                      <i class="fab fa-php"></i> phpMyAdmin
+                  </li>
+                  <li class="technical-skills-item">
+                      <i class="ri-android-fill"></i> Android Studio
+                  </li>
+                  <li class="technical-skills-item">
+                      <i class="ri-pencil-ruler-2-line"></i> Figma
+                  </li>
+                  <li class="technical-skills-item">
+                      <i class="ri-code-s-slash-line"></i> Eclipse
+                  </li>
+                  <li class="technical-skills-item">
+                      <i class="ri-terminal-box-fill"></i> IntelliJ IDEA
+                  </li>
+                  <li class="technical-skills-item">
+                      <i class="ri-database-2-line"></i> MySQL
+                  </li>
+              </ul>
+          </div>
+      </section>
+        <br>
+        <!-- Extracurricular Section -->
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Extracurricular Activities</h3>
+          </div>
+      
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Football Team Captain</h4>
+              <span>2019 - 2021</span>
+              <p class="timeline-text">Led the team in Qatar, showcasing strong leadership, teamwork, and strategic planning skills.</p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Athletics Competitor</h4>
+              <span>2018 - 2022</span>
+              <p class="timeline-text">Secured 1st and 2nd places in regional athletics competitions, demonstrating dedication and competitive spirit.</p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Mentor for Coding Workshops</h4>
+              <span>2023 - Present</span>
+              <p class="timeline-text">Provided guidance to peers and junior students, facilitating their learning in coding challenges and programming fundamentals.</p>
+            </li>
+          </ol>
+        </section>
+        <button class="btn view-resume-btn" onclick="openResumeModal()">View Full Resume</button>
+
+        <div id="resume-modal" class="modal">
+          <div class="modal-content">
+            <span class="close" onclick="closeResumeModal()">&times;</span>
+            <iframe src="ResumeAwais.pdf" class="resume-iframe"></iframe>
+          </div>
+        </div>
+        
+
+      </article>
+      
+
+        <!--
+        - #PORTFOLIO
+      -->
+
+        <article class="portfolio" data-page="portfolio">
+          
+
+            <div class="filter-select-box">
+              <button class="filter-select" data-select>
+                <div class="select-value" data-selecct-value>
+                  Select category
+                </div>
+
+                <div class="select-icon">
+                  <ion-icon name="chevron-down"></ion-icon>
+                </div>
+              </button>
+    
+            </div>
+          </section>
+              
+                </a>
+              </li>
+            </ul>
+          </section>
+        </article>
+
+        <!--
+        - #BLOG
+      -->
+
+        <article class="blog" data-page="blog">
+          <header>
+            <h2 class="h2 article-title">Blog</h2>
+          </header>
+
+          <section class="blog-posts">
+            <ul class="blog-posts-list">
+              <li class="blog-post-item">
+                <a href="#">
+                  <figure class="blog-banner-box">
+                    <img
+                      src="./assets/images/blog-1.jpg"
+                      alt="Design conferences in 2022"
+                      loading="lazy"
+                    />
+                  </figure>
+
+                  <div class="blog-content">
+                    <div class="blog-meta">
+                      <p class="blog-category">Design</p>
+
+                      <span class="dot"></span>
+
+                      <time datetime="2022-02-23">Fab 23, 2022</time>
+                    </div>
+
+                    <h3 class="h3 blog-item-title">
+                      Design conferences in 2022
+                    </h3>
+
+                    <p class="blog-text">
+                      Created this blog for design conference in 2022.
+                    </p>
+                  </div>
+                </a>
+              </li>
+
+              <li class="blog-post-item">
+                <a href="#">
+                  <figure class="blog-banner-box">
+                    <img
+                      src="./assets/images/blog-2.jpg"
+                      alt="Best fonts every designer"
+                      loading="lazy"
+                    />
+                  </figure>
+
+                  <div class="blog-content">
+                    <div class="blog-meta">
+                      <p class="blog-category">Design</p>
+
+                      <span class="dot"></span>
+
+                      <time datetime="2022-02-23">Fab 23, 2022</time>
+                    </div>
+
+                    <h3 class="h3 blog-item-title">
+                      Best fonts every designer
+                    </h3>
+
+                    <p class="blog-text">
+                      Blog created for developers and designer to give best
+                      fonts for their projects.
+                    </p>
+                  </div>
+                </a>
+              </li>
+
+              <li class="blog-post-item">
+                <a href="#">
+                  <figure class="blog-banner-box">
+                    <img
+                      src="./assets/images/blog-3.jpg"
+                      alt="Design digest #80"
+                      loading="lazy"
+                    />
+                  </figure>
+
+                  <div class="blog-content">
+                    <div class="blog-meta">
+                      <p class="blog-category">Design</p>
+
+                      <span class="dot"></span>
+
+                      <time datetime="2022-02-23">Fab 23, 2022</time>
+                    </div>
+
+                    <h3 class="h3 blog-item-title">Design digest #80</h3>
+
+                    <p class="blog-text">
+                      This blog for designers to improve their creativity.
+                    </p>
+                  </div>
+                </a>
+              </li>
+
+              <li class="blog-post-item">
+                <a href="#">
+                  <figure class="blog-banner-box">
+                    <img
+                      src="./assets/images/blog-4.jpg"
+                      alt="UI interactions of the week"
+                      loading="lazy"
+                    />
+                  </figure>
+
+                  <div class="blog-content">
+                    <div class="blog-meta">
+                      <p class="blog-category">Design</p>
+
+                      <span class="dot"></span>
+
+                      <time datetime="2022-02-23">Fab 23, 2022</time>
+                    </div>
+
+                    <h3 class="h3 blog-item-title">
+                      UI interactions of the week
+                    </h3>
+
+                    <p class="blog-text">
+                      This blog about best ui interactions developed in the
+                      week.
+                    </p>
+                  </div>
+                </a>
+              </li>
+
+              <li class="blog-post-item">
+                <a href="#">
+                  <figure class="blog-banner-box">
+                    <img
+                      src="./assets/images/blog-5.jpg"
+                      alt="The forgotten art of spacing"
+                      loading="lazy"
+                    />
+                  </figure>
+
+                  <div class="blog-content">
+                    <div class="blog-meta">
+                      <p class="blog-category">Design</p>
+
+                      <span class="dot"></span>
+
+                      <time datetime="2022-02-23">Fab 23, 2022</time>
+                    </div>
+
+                    <h3 class="h3 blog-item-title">
+                      The forgotten art of spacing
+                    </h3>
+
+                    <p class="blog-text">
+                      Blog is for creators The importence of spacing in design
+                      proffesion.
+                    </p>
+                  </div>
+                </a>
+              </li>
+
+              <li class="blog-post-item">
+                <a href="#">
+                  <figure class="blog-banner-box">
+                    <img
+                      src="./assets/images/blog-6.jpg"
+                      alt="Design digest #79"
+                      loading="lazy"
+                    />
+                  </figure>
+
+                  <div class="blog-content">
+                    <div class="blog-meta">
+                      <p class="blog-category">Design</p>
+
+                      <span class="dot"></span>
+
+                      <time datetime="2022-02-23">Fab 23, 2022</time>
+                    </div>
+
+                    <h3 class="h3 blog-item-title">Design digest #79</h3>
+
+                    <p class="blog-text">
+                      This blog for designers to improve their creativity.
+                    </p>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </section>
+        </article>
+
+        <!--
+        - #CONTACT
+      -->
+
+      <article class="contact" data-page="contact">
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+      
+        <section class="contact-form">
+          <h3 class="h3 form-title">Contact Form</h3>
+      
+          <form
+            action="https://api.web3forms.com/submit"
+            class="form"
+            method="post"
+            id="contact-form"
+          >
+            <!-- Hidden field for Web3Forms access key -->
+            <input
+              type="hidden"
+              name="access_key"
+              value="eb08455d-3f16-4f7e-bfb1-9b7a68c27c62"
+            />
+      
+            <div class="input-wrapper">
+              <input
+                type="text"
+                name="fullname"
+                class="form-input"
+                placeholder="Full name"
+                required
+              />
+      
+              <input
+                type="email"
+                name="email"
+                class="form-input"
+                placeholder="Email address"
+                required
+              />
+            </div>
+      
+            <textarea
+              name="message"
+              class="form-input"
+              placeholder="Your Message"
+              required
+            ></textarea>
+      
+            <button class="form-btn" type="submit">
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Send Message</span>
+            </button>
+          </form>
+        </section>
+      </article>
+      
+      <script>
+        document.getElementById("contact-form").addEventListener("submit", async function (event) {
+          event.preventDefault();
+          const form = event.target;
+          const formData = new FormData(form);
+      
+          try {
+            const response = await fetch(form.action, {
+              method: "POST",
+              body: formData,
+              headers: {
+                Accept: "application/json",
+              },
+            });
+      
+            if (response.ok) {
+              alert("Message sent successfully!");
+              form.reset();
+            } else {
+              const data = await response.json();
+              alert(data.message || "Something went wrong. Please try again later.");
+            }
+          } catch (error) {
+            alert("An error occurred. Please check your connection and try again.");
+          }
+        });
+      </script>
+      
+      </div>
+    </main>
+
+    <!--
+    - custom js link
+  -->
+    <script src="./assets/js/script.js"></script>
+
+    <!--
+    - ionicon link
+  -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script>
+      function openResumeModal() {
+  document.getElementById('resume-modal').style.display = 'block';
+  document.querySelector('.modal-content').focus(); // Accessibility: focus on modal content
+}
+
+function closeResumeModal() {
+  document.getElementById('resume-modal').style.display = 'none';
+}
+
+// Close modal if clicking outside of content
+window.onclick = function(event) {
+  if (event.target === document.getElementById('resume-modal')) {
+    closeResumeModal();
+  }
+}
+
+    </script>
+  </body>
+</html>

@@ -28,293 +28,203 @@
   </body>
 </html>
 
-    <style>
-     /* Button Styling */
-.view-resume-btn {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #f8c966;
-  color: #fff;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.view-resume-btn:hover {
-  background-color: #b28e4e;
-  transform: scale(1.05);
-}
-
-/* Modal Styling */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.85);
-  animation: fadeIn 0.5s;
-}
-
-.modal-content {
-  position: relative;
-  margin: 5% auto;
-  padding: 0;
-  width: 90%;
-  max-width: 900px;
-  background-color: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-  animation: slideIn 0.4s;
-}
-
-.resume-iframe {
-  width: 100%;
-  height: 600px;
-  border: none;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-}
-
-.close {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  color: #aaa;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-  color: #f8c966;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from { background-color: rgba(0, 0, 0, 0); }
-  to { background-color: rgba(0, 0, 0, 0.85); }
-}
-
-@keyframes slideIn {
-  from { transform: translateY(-100px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-/* Scoped styling for the technical skills section */
-/* Scoped styling for the technical skills section */
-.technical-skills-section .technical-skills-list {
+<style>
+  .title-wrapper {
   display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  padding: 10px 0;
-  list-style: none;
-}
-
-.technical-skills-section .technical-skills-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 1rem;
-}
-
-/* Default icon color */
-.technical-skills-section .technical-skills-item ion-icon,
-.technical-skills-section .technical-skills-item i {
-  font-size: 1.5rem;
-  color: #f8c966; /* Default icon color */
-}
-
-/* Default text color */
-.technical-skills-section .technical-skills-item {
-  color: #333; /* Default text color */
-}
-
-/* Java */
-.technical-skills-section .technical-skills-item i.fab.fa-java {
-  color: #F7DF1E; /* Java icon color */
-}
-.technical-skills-section .technical-skills-item {
-  color: #F7DF1E; /* Java text color */
-}
-
-/* PHP */
-.technical-skills-section .technical-skills-item i.fab.fa-php {
-  color: #4F5D95; /* PHP icon color */
-}
-.technical-skills-section .technical-skills-item {
-  color: #4F5D95; /* PHP text color */
-}
-
-/* Python */
-.technical-skills-section .technical-skills-item i.fab.fa-python {
-  color: #306998; /* Python icon color */
-}
-.technical-skills-section .technical-skills-item {
-  color: #306998; /* Python text color */
-}
-
-/* XML */
-.technical-skills-section .technical-skills-item i.ri-code-s-slash-line {
-  color: #E34F26; /* XML icon color */
-}
-.technical-skills-section .technical-skills-item {
-  color: #E34F26; /* XML text color */
-}
-
-/* Node.js */
-.technical-skills-section .technical-skills-item ion-icon[name="logo-nodejs"] {
-  color: #8CC84B; /* Node.js icon color */
-}
-.technical-skills-section .technical-skills-item {
-  color: #8CC84B; /* Node.js text color */
-}
-
-/* HTML */
-.technical-skills-section .technical-skills-item ion-icon[name="logo-html5"] {
-  color: #E34F26; /* HTML icon color */
-}
-.technical-skills-section .technical-skills-item {
-  color: #E34F26; /* HTML text color */
-}
-
-/* CSS */
-.technical-skills-section .technical-skills-item ion-icon[name="logo-css3"] {
-  color: #1572B6; /* CSS icon color */
-}
-.technical-skills-section .technical-skills-item {
-  color: #1572B6; /* CSS text color */
-}
-
-/* JavaScript */
-.technical-skills-section .technical-skills-item ion-icon[name="logo-javascript"] {
-  color: #F7DF1E; /* JavaScript icon color */
-}
-.technical-skills-section .technical-skills-item {
-  color: #F7DF1E; /* JavaScript text color */
-}
-
-/* jQuery */
-.technical-skills-section .technical-skills-item i.ri-jquery-fill {
-  color: #0769AD; /* jQuery icon color */
-}
-.technical-skills-section .technical-skills-item {
-  color: #0769AD; /* jQuery text color */
-}
-
-/* React */
-.technical-skills-section .technical-skills-item ion-icon[name="logo-react"] {
-  color: #61DAFB; /* React icon color */
-}
-.technical-skills-section .technical-skills-item {
-  color: #61DAFB; /* React text color */
-}
-
-/* MySQL */
-.technical-skills-section .technical-skills-item i.ri-database-2-line {
-  color: #00758F; /* MySQL icon color */
-}
-.technical-skills-section .technical-skills-item {
-  color: #00758F; /* MySQL text color */
-}
-
-/* MongoDB */
-.technical-skills-section .technical-skills-item i.ri-server-line {
-  color: #4DB33D; /* MongoDB icon color */
-}
-.technical-skills-section .technical-skills-item {
-  color: #4DB33D; /* MongoDB text color */
-}
-
-/* VsCode */
-.technical-skills-section .technical-skills-item i.ri-code-s-slash-fill {
-  color: #007ACC; /* VsCode icon color */
-}
-.technical-skills-section .technical-skills-item {
-  color: #007ACC; /* VsCode text color */
-}
-
-/* NetBeans */
-.technical-skills-section .technical-skills-item i.ri-terminal-box-line {
-  color: #f8c966; /* NetBeans icon color */
-}
-.technical-skills-section .technical-skills-item {
-  color: #1E1E1E; /* NetBeans text color */
-}
-
-/* phpMyAdmin */
-.technical-skills-section .technical-skills-item i.fab.fa-php {
-  color: #4F5D95; /* phpMyAdmin icon color */
-}
-.technical-skills-section .technical-skills-item {
-  color: #4F5D95; /* phpMyAdmin text color */
-}
-
-/* Android Studio */
-.technical-skills-section .technical-skills-item i.ri-android-fill {
-  color: #A4C639; /* Android Studio icon color */
-}
-.technical-skills-section .technical-skills-item {
-  color: #A4C639; /* Android Studio text color */
-}
-
-/* Figma */
-.technical-skills-section .technical-skills-item i.ri-pencil-ruler-2-line {
-  color: #F24C3D; /* Figma icon color */
-}
-.technical-skills-section .technical-skills-item {
-  color: #F24C3D; /* Figma text color */
-}
-
-/* Eclipse */
-.technical-skills-section .technical-skills-item i.ri-code-s-slash-line {
-  color: #E34F26; /* Eclipse icon color */
-}
-.technical-skills-section .technical-skills-item {
-  color: #E34F26; /* Eclipse text color */
-}
-
-/* IntelliJ IDEA */
-.technical-skills-section .technical-skills-item i.ri-terminal-box-fill {
-  color: #f8c966; /* IntelliJ IDEA icon color */
-}
-.technical-skills-section .technical-skills-item {
-  color: #000; /* IntelliJ IDEA text color */
-}
-
-/* Font Awesome-specific icon styles */
-
-
-
-.title-wrapper {
-  display: flex;
-  align-items: center;
+  align-items: center; /* Vertically centers the icon and text */
 }
 
 .icon-box {
-  margin-right: 10px; /* Adjust space between icon and text */
+  margin-right: 10px; /* Adjust the spacing between the icon and the text */
 }
 
-.icon-box ion-icon {
-  font-size: 24px; /* Adjust icon size */
+h3 {
+  margin: 0; /* Remove default margin for the heading */
 }
 
-.h3 {
-  margin: 0; /* Remove default margin from h3 */
-  font-size: 18px; /* Adjust text size */
-}
-
-    </style>
+  /* Subheading Styles */
+  .technical-skills-category h4 {
+      font-size: 1.5rem; /* Increase size */
+      font-weight: bold; /* Make bold */
+      color: white; /* Ensure white text for subheadings */
+      margin-bottom: 1rem;
+  }
+  
+  /* Skill Item Styles */
+  .technical-skills-item {
+      display: inline-block;
+      margin: 0.5rem 0.5rem 0 0;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      color: white !important; /* Default text color */
+      text-transform: uppercase;
+  }
+  
+  /* Background Colors with Improved Visibility */
+  .java { background-color: #007396; }
+  .php { background-color: #4F5B93; }
+  .cpp { background-color: #0c4c84; }
+  .cplusplus { background-color: #00599C; }
+  .python { background-color: #3776AB; }
+  .nodejs { background-color: #68A063; }
+  .sql { background-color: #F29111; }
+  
+  .html { background-color: #E34C26; }
+  .javascript { background-color: #FFCA28; color: black; } /* Improve contrast */
+  .react { background-color: #61DAFB; color: black; }
+  .jquery { background-color: #0868AC; }
+  .nextjs { background-color: #000; color: white; }
+  .typescript { background-color: #3178C6; }
+  .tailwindcss { background-color: #38B2AC; }
+  
+  .mysql { background-color: #4479A1; }
+  .mongodb { background-color: #47A248; }
+  .postgresql { background-color: #336791; }
+  
+  .xml { background-color: #FF6600; }
+  .json { background-color: #00BCD4; }
+  
+  .vscode { background-color: #007ACC; }
+  .netbeans { background-color: #1B6AC6; }
+  .phpmyadmin { background-color: #FBC02D; color: black; } /* Improve contrast */
+  .androidstudio { background-color: #3DDC84; }
+  .figma { background-color: #A259FF; }
+  .git { background-color: #F05033; }
+  
+  /* For Dark Background Pages */
+  body {
+      background-color: #1E1E1E; /* Dark background */
+      color: white; /* Default text color */
+  }
+  
+  /* Button Styling */
+  .service-list {
+      list-style: none; /* Remove default list styles */
+      padding: 0; /* Remove default padding */
+  }
+  
+  .service-item {
+      display: flex; /* Use flexbox for layout */
+      align-items: center; /* Center items vertically */
+      margin-bottom: 20px; /* Space between items */
+  }
+  
+  .service-icon-box {
+      margin-right: 15px; /* Space between icon and text */
+  }
+  
+  .service-content-box {
+      flex: 1; /* Allow content box to take remaining space */
+  }
+  
+  .view-resume-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #f8c966;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .view-resume-btn:hover {
+    background-color: #b28e4e;
+    transform: scale(1.05);
+  }
+  
+  /* Modal Styling */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.85);
+    animation: fadeIn 0.5s;
+  }
+  
+  .modal-content {
+    position: relative;
+    margin: 5% auto;
+    padding: 0;
+    width: 90%;
+    max-width: 900px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.4s;
+  }
+  
+  .resume-iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #f8c966;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { background-color: rgba(0, 0, 0, 0); }
+    to { background-color: rgba(0, 0, 0, 0.85); }
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateY(-100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  /* Scoped Styling for Technical Skills Section */
+  .technical-skills-section .technical-skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 10px 0;
+    list-style: none;
+  }
+  
+  .technical-skills-section .technical-skills-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    color: white !important; /* Ensure white text */
+  }
+  
+  /* Default Icon Color */
+  .technical-skills-section .technical-skills-item ion-icon,
+  .technical-skills-section .technical-skills-item i {
+    font-size: 1.5rem;
+    color: #f8c966; /* Default icon color */
+  }
+  </style>
+  
   </head>
 
   <body>
@@ -380,18 +290,6 @@
                 <p class="contact-title">Phone</p>
 
                 <a class="contact-link">(+60) 1116855669</a>
-              </div>
-            </li>
-
-            <li class="contact-item">
-              <div class="icon-box">
-                <ion-icon name="calendar-outline"></ion-icon>
-              </div>
-
-              <div class="contact-info">
-                <p class="contact-title">Birthday</p>
-
-                <time>Aug 20, 2005</time>
               </div>
             </li>
 
@@ -475,12 +373,8 @@
 
           <section class="about-text">
             <p>
-              I am Muhammad Awais Ghaffar, a passionate Computer Science student with a strong foundation in both front-end and back-end technologies. Currently pursuing a Diploma in Information Technology at Sunway College, I have a proven track record in programming, web development, and app design. My portfolio includes projects like a full-stack ecommerce platform and an airline check-in system, showcasing my ability to create user-friendly and secure digital solutions.            </p>
-            <p>
-              Beyond academics, I have demonstrated leadership as a football team captain and excelled in athletics. My technical expertise spans multiple programming languages, web development frameworks, and design tools, allowing me to craft intuitive and innovative tech solutions.
-            </p>
-            <p>
-              I am always eager to learn and contribute to team objectives, whether in coding challenges, tech workshops, or collaborative projects. With a commitment to excellence and a passion for technology, I aim to make a meaningful impact in the tech industry.
+              I am an enthusiastic Computer Science student with expertise in both front-end and back-end development. My skills span application design, web development, and effective team collaboration. Passionate about delivering innovative tech solutions, I thrive on learning new technologies and advancing industry knowledge.              <p>
+                I enjoy solving analytically challenging problems and working with dynamic teams to create impactful, meaningful solutions.
             </p>
           </section>
 
@@ -506,7 +400,6 @@
                   <h4 class="h4 service-item-title">Web design</h4>
 
                   <p class="service-item-text">
-                    Creating attractive and user-friendly website layouts.
                   </p>
                 </div>
               </li>
@@ -523,7 +416,6 @@
                 <div class="service-content-box">
                   <h4 class="h4 service-item-title">Web development</h4>            
                   <p class="service-item-text">
-                    Building responsive and efficient websites.
                   </p>
                 </div>
               </li>
@@ -540,7 +432,6 @@
                 <div class="service-content-box">
                   <h4 class="h4 service-item-title">UI/UX</h4>
                   <p class="service-item-text">
-                    Designing easy and enjoyable user experiences.
                   </p>
                 </div>
               </li>
@@ -557,7 +448,6 @@
                 <div class="service-content-box">
                   <h4 class="h4 service-item-title">Database Management</h4>
                   <p class="service-item-text">
-                    Organizing and maintaining data for reliable and secure access.
                   </p>
                 </div>
               </li>
@@ -608,7 +498,7 @@
             <li class="timeline-item">
               <h4 class="h4 timeline-item-title">Sunway College,  Subang Jaya, Selangor, Malaysia</h4>
               <span>2023 - 2025</span>
-              <p class="timeline-text">Diploma in Information Technology (DIIT), CGPA: 3.5. Recipient of Jeffrey Cheah Entrance Scholarship.</p>
+              <p class="timeline-text">Diploma in Information Technology (DIIT), Recipient of Jeffrey Cheah Entrance Scholarship.</p>
             </li>
             <li class="timeline-item">
               <h4 class="h4 timeline-item-title">IGCSE, Al-Khor International School, Al-Khor, Qatar</h4>
@@ -629,47 +519,61 @@
       
           <ol class="timeline-list">
             <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">EchoPDF (AI-Powered PDF Chat Application)</h4>
+              <span>AI Integration</span>
+              <p class="timeline-text">
+                Developed a Next.js application that allows users to upload PDFs and interact with them through an AI-powered chat.
+              </p>
+              <span>Deployment</span>
+              <p class="timeline-text">
+                Successfully deployed on Vercel, providing a user-friendly interface for seamless access.
+              </p>
+              <span>Technologies Used</span>
+              <p class="timeline-text">
+                Next.js, Meta Ollama LLM, Yarn, Clerk, Vercel.
+              </p>
+            </li>
+          
+            <li class="timeline-item">
               <h4 class="h4 timeline-item-title">ShopHaven (Ecommerce Website)</h4>
               <span>Fullstack Development</span>
               <p class="timeline-text">
-                Designed and built a comprehensive ecommerce platform with user-friendly interfaces, secure payment processing, and responsive design to enhance user experience across devices.
+                Designed and built an ecommerce platform with responsive design and secure transactions.
               </p>
-            </li>
-      
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Aeroline (Airline Check-In System)</h4>
-              <span>System Design</span>
+              <span>Technologies Used</span>
               <p class="timeline-text">
-                Created an intuitive check-in system with features for seat selection and real-time flight updates, improving user experience and ensuring secure passenger data management.
+                XAMPP, PHP Mailer, Bootstrap, Composer, Hunter API.
               </p>
             </li>
           </ol>
+          
         </section>
       
         <!-- Skills Section -->
         <section class="skill">
-          <h3 class="h3 skills-title">My Skills</h3> <br>
+          <h3 class="h3 skills-title">My Skills</h3>
+          <br>
           <ul class="skills-list content-card">
             <li class="skills-item">
               <div class="title-wrapper">
-                <h5 class="h5">Programming Languages</h5>
+                <h5 class="h5">Backend Development</h5>
                 <data value="90">90%</data>
               </div>
               <div class="skill-progress-bg">
                 <div class="skill-progress-fill" style="width: 90%"></div>
               </div>
             </li>
-      
+        
             <li class="skills-item">
               <div class="title-wrapper">
-                <h5 class="h5">Front-End Development</h5>
+                <h5 class="h5">Frontend Development</h5>
                 <data value="85">85%</data>
               </div>
               <div class="skill-progress-bg">
                 <div class="skill-progress-fill" style="width: 85%"></div>
               </div>
             </li>
-      
+        
             <li class="skills-item">
               <div class="title-wrapper">
                 <h5 class="h5">Database Management</h5>
@@ -679,7 +583,7 @@
                 <div class="skill-progress-fill" style="width: 80%"></div>
               </div>
             </li>
-      
+        
             <li class="skills-item">
               <div class="title-wrapper">
                 <h5 class="h5">UI/UX Design</h5>
@@ -689,7 +593,7 @@
                 <div class="skill-progress-fill" style="width: 75%"></div>
               </div>
             </li>
-      
+        
             <li class="skills-item">
               <div class="title-wrapper">
                 <h5 class="h5">App Development</h5>
@@ -699,110 +603,82 @@
                 <div class="skill-progress-fill" style="width: 80%"></div>
               </div>
             </li>
+        
           </ul>
         </section>
+        
       
         <br>
         <section class="skills technical-skills-section">
           <div class="title-wrapper">
-              <div class="icon-box">
-                  <ion-icon name="code-slash-outline"></ion-icon>
-              </div>
-              <h3 class="h3"> &nbsp &nbsp  Technical Skills</h3>
+            <div class="icon-box">
+              <ion-icon name="code-slash-outline"></ion-icon>
+            </div>
+            <h3 class="h3"> Technical Skills</h3>
           </div>
+          
           <br>
-  
-          <!-- Programming Languages -->
+        
+          <!-- Backend -->
           <div class="technical-skill-category">
-              <h4 class="h5">Programming Languages</h5>
-              <ul class="technical-skills-list">
-                  <li class="technical-skills-item">
-                      <i class="fab fa-java"></i> Java
-                  </li>
-                  <li class="technical-skills-item">
-                      <i class="fab fa-php"></i> PHP
-                  </li>
-                  <li class="technical-skills-item">
-                      <i class="fab fa-python"></i> Python
-                  </li>
-                  <li class="technical-skills-item">
-                      <i class="ri-code-s-slash-line"></i> XML
-                  </li>
-                  <li class="technical-skills-item">
-                      <ion-icon name="logo-nodejs"></ion-icon> Node.js
-                  </li>
-                  <li class="technical-skills-item">
-                      <i class="ri-braces-line"></i> JSON
-                  </li>
-              </ul>
+            <h4 class="h5">Backend</h4>
+            <ul class="technical-skills-list">
+              <li class="technical-skills-item java">Java</li>
+              <li class="technical-skills-item php">PHP</li>
+              <li class="technical-skills-item cpp">C++</li>
+              <li class="technical-skills-item python">Python</li>
+              <li class="technical-skills-item nodejs">Node.js</li>
+              <li class="technical-skills-item sql">SQL</li>
+            </ul>
           </div>
-  
-          <!-- Front-End Development -->
+        
+          <!-- Frontend -->
           <div class="technical-skill-category">
-              <h4 class="h5">Front-End Development</h5>
-              <ul class="technical-skills-list">
-                  <li class="technical-skills-item">
-                      <ion-icon name="logo-html5"></ion-icon> HTML
-                  </li>
-                  <li class="technical-skills-item">
-                      <ion-icon name="logo-css3"></ion-icon> CSS
-                  </li>
-                  <li class="technical-skills-item">
-                      <ion-icon name="logo-javascript"></ion-icon> JavaScript
-                  </li>
-                  <li class="technical-skills-item">
-                      <i class="fab fa-java"></i> jQuery
-                  </li>
-                  <li class="technical-skills-item">
-                      <ion-icon name="logo-react"></ion-icon> React
-                  </li>
-              </ul>
+            <h4 class="h5">Frontend</h4>
+            <ul class="technical-skills-list">
+              <li class="technical-skills-item html">HTML</li>
+              <li class="technical-skills-item javascript">JavaScript</li>
+              <li class="technical-skills-item react">React</li>
+              <li class="technical-skills-item jquery">jQuery</li>
+              <li class="technical-skills-item nextjs">Next.js</li>
+              <li class="technical-skills-item typescript">TypeScript</li>
+              <li class="technical-skills-item tailwindcss">Tailwind CSS</li>
+            </ul>
           </div>
-  
-          <!-- Database Management -->
+        
+          <!-- Database -->
           <div class="technical-skill-category">
-              <h4 class="h5">Database Management</h5>
-              <ul class="technical-skills-list">
-                  <li class="technical-skills-item">
-                      <i class="ri-database-2-line"></i> MySQL
-                  </li>
-                  <li class="technical-skills-item">
-                      <i class="ri-server-line"></i> MongoDB
-                  </li>
-              </ul>
+            <h4 class="h5">Database</h4>
+            <ul class="technical-skills-list">
+              <li class="technical-skills-item mysql">MySQL</li>
+              <li class="technical-skills-item mongodb">MongoDB</li>
+              <li class="technical-skills-item postgresql">PostgreSQL</li>
+            </ul>
           </div>
-  
+        
+          <!-- Other -->
+          <div class="technical-skill-category">
+            <h4 class="h5">Other</h4>
+            <ul class="technical-skills-list">
+              <li class="technical-skills-item xml">XML</li>
+              <li class="technical-skills-item json">JSON</li>
+            </ul>
+          </div>
+        
           <!-- Tools -->
           <div class="technical-skill-category">
-              <h4 class="h5">Tools</h5>
-              <ul class="technical-skills-list">
-                  <li class="technical-skills-item">
-                      <i class="ri-code-s-slash-fill"></i> VsCode
-                  </li>
-                  <li class="technical-skills-item">
-                      <i class="ri-terminal-box-line"></i> NetBeans
-                  </li>
-                  <li class="technical-skills-item">
-                      <i class="fab fa-php"></i> phpMyAdmin
-                  </li>
-                  <li class="technical-skills-item">
-                      <i class="ri-android-fill"></i> Android Studio
-                  </li>
-                  <li class="technical-skills-item">
-                      <i class="ri-pencil-ruler-2-line"></i> Figma
-                  </li>
-                  <li class="technical-skills-item">
-                      <i class="ri-code-s-slash-line"></i> Eclipse
-                  </li>
-                  <li class="technical-skills-item">
-                      <i class="ri-terminal-box-fill"></i> IntelliJ IDEA
-                  </li>
-                  <li class="technical-skills-item">
-                      <i class="ri-database-2-line"></i> MySQL
-                  </li>
-              </ul>
+            <h4 class="h5">Tools</h4>
+            <ul class="technical-skills-list">
+              <li class="technical-skills-item vscode">Visual Studio Code</li>
+              <li class="technical-skills-item netbeans">NetBeans</li>
+              <li class="technical-skills-item phpmyadmin">phpMyAdmin</li>
+              <li class="technical-skills-item androidstudio">Android Studio</li>
+              <li class="technical-skills-item figma">Figma</li>
+              <li class="technical-skills-item git">Git</li>
+            </ul>
           </div>
-      </section>
+        </section>
+        
         <br>
         <!-- Extracurricular Section -->
         <section class="timeline">
